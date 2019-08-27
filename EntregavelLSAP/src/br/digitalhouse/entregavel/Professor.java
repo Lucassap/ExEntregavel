@@ -48,4 +48,7 @@ public abstract class Professor {
     public void setCodigoprofessor(Integer codigoprofessor) {
         this.codigoprofessor = codigoprofessor;
     }
+
+
+
 }

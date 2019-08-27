@@ -1,6 +1,7 @@
 package br.digitalhouse.entregavel;
 
 import java.util.List;
+import java.util.Date;
 
 public class DigitalHouseManager {
     List<Aluno> dhalunos;
@@ -17,7 +18,7 @@ public class DigitalHouseManager {
     }
 
     public void registrarCurso(String nome, Integer codigoCurso, Integer quantidadeMaximaDeAlunos) {
-        Curso reg = new Curso(nome, codigoCurso, quantidadeMaximaDeAlunos);
+        Curso reg = new Curso(nome, quantidadeMaximaDeAlunos,codigoCurso);
         dhcursos.add(reg);
 
     }
@@ -35,16 +36,15 @@ public class DigitalHouseManager {
 
     }
 
-    public void registrarProfessorAdjunto(String nome, String sobrenome, Integer codigoProfessor, Integer quantidadeDeHoras){
-        ProfAdjunto reg = new ProfAdjunto(nome,sobrenome,0, codigoProfessor,quantidadeDeHoras);
+    public void registrarProfessorAdjunto(String nome, String sobrenome, Integer codigoProfessor, Integer quantidadeDeHoras) {
+        ProfAdjunto reg = new ProfAdjunto(nome, sobrenome, 0, codigoProfessor, quantidadeDeHoras);
         dhprofessores.add(reg);
-
 
 
     }
 
-    public void registrarProfessorTitular(String nome, String sobrenome, Integer codigoProfessor, String especialidade){
-        ProfTitular reg = new ProfTitular(nome,sobrenome,0,codigoProfessor,especialidade);
+    public void registrarProfessorTitular(String nome, String sobrenome, Integer codigoProfessor, String especialidade) {
+        ProfTitular reg = new ProfTitular(nome, sobrenome, 0, codigoProfessor, especialidade);
         dhprofessores.add(reg);
 
 
@@ -64,34 +64,63 @@ public class DigitalHouseManager {
 
     }
 
-    public void matricularAluno(String nome, String sobrenome, Integer codigoAluno){
-        Aluno reg = new Aluno(nome,sobrenome,codigoAluno);
+    public void matricularAluno(String nome, String sobrenome, Integer codigoAluno) {
+        Aluno reg = new Aluno(nome, sobrenome, codigoAluno);
+        dhalunos.add(reg);
 
     }
 
-    public void matricularAluno(Integer codigoAluno, Integer codigoCurso){
-        Integer auxcodigoaluno;
+    public void matricularAluno(Integer codigoAluno, Integer codigoCurso) {
 
 
+        System.out.println("a");
 
-        for (int i = 0; i <dhalunos.size() ; i++) {
-            if (dhalunos.get(i).getCodigoaluno() == codigoAluno) {
-                auxcodigoaluno = dhalunos.get(i).getCodigoaluno();
+        for (int i = 0; i < dhalunos.size(); i++) {
+            if (dhalunos.get(i).codigoaluno  == codigoAluno ) {
+                System.out.println("b");
+
+                for (int a = 0; a < dhcursos.size(); a++) {
+
+                    if (dhcursos.get(a).codigocurso == codigoCurso ) {
+                        System.out.println("c");
+                        if (dhcursos.get(a).getQtdmax() > 0) {
+                            System.out.println("d");
+                            Date dataDoDia = new Date();
+                            Matricula reg = new Matricula(dhalunos.get(i), dataDoDia, dhcursos.get(a));
+                            dhmatriculas.add(reg);
+                            System.out.println("Matrícula no curso" + dhcursos.get(a).nome + " realizada com sucesso!");
+                        } else {
+                            System.out.println("Mátricula não realizada devido a falta de vagas no curso  " + dhcursos.get(a).nome);
+
+
+                        }
+                    }
+                }
             }
 
         }
+    }
 
-        for (int a = 0; a <dhcursos.size() ; a++) {
-            if(dhcursos.get(a).getCodigocurso() == codigoCurso){
-                if(dhcursos.get(a).getQtdmax() != 0){
+    public void alocarProfessores(Integer codigoCurso, Integer codigoProfessorTitular, Integer codigoProfessorAdjunto) {
+
+
+        for (int a = 0; a < dhcursos.size(); a++) {
+            if (dhcursos.get(a).codigocurso.equals(codigoCurso)) {
+
+
+                for (int i = 0; i < dhprofessores.size(); i++) {
+                    if (dhprofessores.get(i).codigoprofessor.equals(codigoProfessorTitular)) {
+                        dhcursos.get(a).setPtitular((ProfTitular)(dhprofessores.get(i)));
+                    }
+
+                    else if (dhprofessores.get(i).codigoprofessor.equals(codigoProfessorAdjunto)) {
+                        dhcursos.get(a).setPadjunto((ProfAdjunto)(dhprofessores.get(i)));
+                    }
+
 
                 }
-
-
             }
-
         }
-
     }
 
 
