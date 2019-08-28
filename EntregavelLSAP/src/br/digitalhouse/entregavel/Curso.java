@@ -1,12 +1,13 @@
 package br.digitalhouse.entregavel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Curso {
     String nome;
     ProfAdjunto padjunto;
     ProfTitular ptitular;
-    List<Aluno> lista;
+    List<Aluno> lista = new ArrayList<>();
     Integer qtdmax;
     Integer codigocurso;
 

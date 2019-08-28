@@ -29,10 +29,10 @@ public class Principal {
         dhmg.matricularAluno("Antônio", "Alvarez", 135);
 
 
-        dhmg.alocarProfessores(20001, 21, 100);
+        dhmg.alocarProfessores(20001, 25, 100);
         dhmg.alocarProfessores(20002, 101, 205);
 
-        dhmg.matricularAluno(100,20001 );
+        dhmg.matricularAluno(100,20001);
         dhmg.matricularAluno(15, 20001);
 
         dhmg.matricularAluno(1, 20002);
@@ -43,6 +43,7 @@ public class Principal {
         System.out.println(dhmg.dhcursos.size());
         System.out.println(dhmg.dhalunos.size());
         System.out.println(dhmg.dhmatriculas.size());
+
 
 
 
