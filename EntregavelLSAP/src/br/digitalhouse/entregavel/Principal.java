@@ -39,10 +39,10 @@ public class Principal {
         dhmg.matricularAluno(150, 20002);
         dhmg.matricularAluno(135, 20002);
 
-        System.out.println(dhmg.dhprofessores.size());
-        System.out.println(dhmg.dhcursos.size());
-        System.out.println(dhmg.dhalunos.size());
-        System.out.println(dhmg.dhmatriculas.size());
+//        System.out.println(dhmg.dhprofessores.size());
+//        System.out.println(dhmg.dhcursos.size());
+//        System.out.println(dhmg.dhalunos.size());
+//        System.out.println(dhmg.dhmatriculas.size());
 
 
 

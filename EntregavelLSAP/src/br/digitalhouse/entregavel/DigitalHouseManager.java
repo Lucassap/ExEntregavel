@@ -89,6 +89,7 @@ public class DigitalHouseManager {
                             Date dataDoDia = new Date();
                             Matricula reg2 = new Matricula(dhalunos.get(i), dataDoDia, dhcursos.get(a));
                             dhmatriculas.add(reg2);
+                            dhcursos.get(a).adicionarUmAluno(dhalunos.get(i));
 
 
 
