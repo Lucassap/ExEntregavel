@@ -1,9 +1,11 @@
 package br.digitalhouse.entregavel;
-
+//Projeto Entregável
+//Feito por Lucas S.A. Pereira
+//Mobile Android 03
 import java.util.List;
 import java.util.Date;
 
-//Feito por Lucas S.A. Pereira
+
 
 public class DigitalHouseManager {
     List<Aluno> dhalunos;

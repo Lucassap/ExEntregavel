@@ -1,5 +1,7 @@
 package br.digitalhouse.entregavel;
-
+//Projeto Entregável
+//Feito por Lucas S.A. Pereira
+//Mobile Android 03
 public class ProfTitular extends Professor {
     String especialidade;
 
