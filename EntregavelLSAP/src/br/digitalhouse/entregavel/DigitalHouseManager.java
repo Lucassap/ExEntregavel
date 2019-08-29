@@ -3,6 +3,8 @@ package br.digitalhouse.entregavel;
 import java.util.List;
 import java.util.Date;
 
+//Feito por Lucas S.A. Pereira
+
 public class DigitalHouseManager {
     List<Aluno> dhalunos;
     List<Professor> dhprofessores;
@@ -128,6 +130,19 @@ public class DigitalHouseManager {
                 }
             }
         }
+    }
+
+    public void verificarCursosAluno(List<Matricula> matriculas , int codigoAluno){
+        for (int i = 0; i <matriculas.size(); i++) {
+            if (matriculas.get(i).maluno.codigoaluno.equals(codigoAluno) ){
+                System.out.println("\nAluno " + matriculas.get(i).maluno.nome + " " + matriculas.get(i).maluno.sobrenome + " " +  "cadastrado no curso de " + matriculas.get(i).mcurso.getNome());
+
+            }
+
+        }
+
+
+
     }
 
 
